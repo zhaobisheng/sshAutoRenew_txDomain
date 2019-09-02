@@ -15,6 +15,14 @@ certbot-auto renew自动续期SSL证书
 ```
 /ssl/letsencrypt/certbot-auto renew  --manual --preferred-challenges dns --manual-auth-hook "/ssl/letsencrypt/sslAuto.sh add" --manual-cleanup-hook "/ssl/letsencrypt/sslAuto.sh clean"
 ```
+## 4. 添加定时任务
+```
+crontab -e
+
+0 3 */7 * * /ssl/letsencrypt/certbot-auto renew  --manual --preferred-challenges dns --manual-auth-hook "/ssl/letsencrypt/sslAuto.sh add" --manual-cleanup-hook "/ssl/letsencrypt/sslAuto.sh clean"
+
+```
+
 ---
 ## 后续添加阿里云的自动脚本，我其他仓库里有阿里云的API调用代码，有能力的朋友稍微改一下也行
 
